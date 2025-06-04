@@ -4,7 +4,7 @@ import {index, crearPelicula, listarPeliculas, editarPeliculaVista, editarPelicu
 const router = express.Router();
 
 router.get('/peliculas', listarPeliculas);
-router.get('/peliulas', index);
+router.get('/', index);
 router.get('/peliculas/:id/edit', editarPeliculaVista);
 router.put('/peliculas/:id', editarPelicula);
 router.delete('/peliculas/:id', eliminarPelicula);
