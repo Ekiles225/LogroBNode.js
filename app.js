@@ -28,15 +28,22 @@ const PORT = process.env.PORT || 3000;
 
 const main = async () => {
   try {
-   // await sequelize.authenticate();
-    //console.log('Base de datos conectada.');
-    //await sequelize.sync({ alter: false });
+    if (process.env.DB_HOST) {
+      await sequelize.authenticate();
+      console.log('Base de datos conectada.');
+      await sequelize.sync({ alter: false });
+    } else {
+      console.log('No hay configuración de base de datos. Continuando sin conexión.');
+    }
+
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
+
   } catch (error) {
-    console.error(`Error: ${error}`); // muestra el error real
+    console.error(`Error: ${error}`);
   }
 };
+
 
 main();
