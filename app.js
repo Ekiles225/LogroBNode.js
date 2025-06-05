@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   res.render('peliculas'); // nombre del archivo .hbs en views
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 const main = async () => {
   try {
